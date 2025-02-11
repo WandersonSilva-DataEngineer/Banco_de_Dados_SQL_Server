@@ -24,7 +24,9 @@ Uso no GitHub
 Este script pode ser documentado no GitHub com as seguintes informações:
 
 Título : Rotinas de Backup Full para SQL Server
+
 Descrição : Script SQL para automatizar backups full no SQL Server, utilizando stored procedures e jobs no SQL Server Agent.
+
 Tags : SQL Server, Backup, Automatização, Stored Procedures, SQL Server Agent
 
 Instruções de Uso :
