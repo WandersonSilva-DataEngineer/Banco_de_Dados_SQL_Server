@@ -67,11 +67,7 @@ Este script foi desenvolvido para criar um job no SQL Server Agent que automatiz
 - Este comando é usado para gerenciar o tamanho do log de erros do SQL Server, evitando que ele cresça indefinidamente.
 - Ele não apaga os logs antigos, apenas os arquiva, permitindo que continuem disponíveis para análise.
 
-- Título : Limpeza Automática do Error Log no SQL Server
-- Descrição : Script SQL para automatizar a limpeza do log de erros (Error Log) do SQL Server, utilizando o procedimento sp_cycle_errorlog. Útil para manter o tamanho do log sob controle e evitar problemas de desempenho.
-- Tags : SQL Server, Manutenção, Logs, Automatização, SQL Server Agent
-
-Instruções de Uso :
+### Instruções de Uso :
 1. Execute o script em um servidor SQL Server com permissões administrativas.
 2. Certifique-se de que o operador de email Alerta_BD esteja configurado no SQL Server Agent para receber notificações de falhas.
 3. O job será executado automaticamente conforme o agendamento definido (todos os sábados às 23:50 PM).
