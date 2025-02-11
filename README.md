@@ -20,14 +20,9 @@ Instruções de Uso :
 
 ## Backup_Full_DBA_JOB.sql
 
-Uso no GitHub
-Este script pode ser documentado no GitHub com as seguintes informações:
-
-Título : Rotinas de Backup Full para SQL Server
-
-Descrição : Script SQL para automatizar backups full no SQL Server, utilizando stored procedures e jobs no SQL Server Agent.
-
-Tags : SQL Server, Backup, Automatização, Stored Procedures, SQL Server Agent
+- Título : Rotinas de Backup Full para SQL Server
+- Descrição : Script SQL para automatizar backups full no SQL Server, utilizando stored procedures e jobs no SQL Server Agent.
+- Tags : SQL Server, Backup, Automatização, Stored Procedures, SQL Server Agent
 
 Instruções de Uso :
 1. Execute o script em um servidor SQL Server com permissões administrativas.
@@ -36,11 +31,9 @@ Instruções de Uso :
 
 ## Detach_Attach_Databases_DBA_Tools.sql
 
-Este script pode ser documentado no GitHub com as seguintes informações:
-
-Título : Comandos para Desanexar e Anexar Bancos de Dados no SQL Server
-Descrição : Script SQL para gerar comandos de desanexação (detach) e anexação (attach) de bancos de dados no SQL Server. Útil para manutenções e movimentações de arquivos de banco de dados.
-Tags : SQL Server, Detach, Attach, Manutenção, Automatização
+- Título : Comandos para Desanexar e Anexar Bancos de Dados no SQL Server
+- Descrição : Script SQL para gerar comandos de desanexação (detach) e anexação (attach) de bancos de dados no SQL Server. Útil para manutenções e movimentações de arquivos de banco de dados.
+- Tags : SQL Server, Detach, Attach, Manutenção, Automatização
 
 Instruções de Uso :
 1. Execute o script em um servidor SQL Server com permissões administrativas.
@@ -49,11 +42,9 @@ Instruções de Uso :
 
 ## Cleanup_Old_Records_DBA_Tools.sql
 
-Este script pode ser documentado no GitHub com as seguintes informações:
-
-Título : Limpeza Automática de Registros Antigos no SQL Server
-Descrição : Script SQL para automatizar a exclusão de registros antigos de tabelas específicas no banco de dados DBA_Tools. Útil para manter o tamanho do banco de dados sob controle.
-Tags : SQL Server, Limpeza, Manutenção, Automatização, Stored Procedures, SQL Server Agent
+- Título : Limpeza Automática de Registros Antigos no SQL Server
+- Descrição : Script SQL para automatizar a exclusão de registros antigos de tabelas específicas no banco de dados DBA_Tools. Útil para manter o tamanho do banco de dados sob controle.
+- Tags : SQL Server, Limpeza, Manutenção, Automatização, Stored Procedures, SQL Server Agent
 
 Instruções de Uso :
 1. Execute o script em um servidor SQL Server com permissões administrativas.
