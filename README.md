@@ -110,3 +110,80 @@ Este script foi desenvolvido para criar um job no SQL Server Agent que automatiz
 1. Execute o script em um servidor SQL Server com permissões administrativas.
 2. Certifique-se de que o operador de email Alerta_BD esteja configurado no SQL Server Agent para receber notificações de falhas.
 3. O job será executado automaticamente conforme o agendamento definido (todos os sábados às 23:50 PM).
+
+## Move_Database_Files_DBA_Tools.sql
+
+- Descrição Geral: Este script foi desenvolvido para mover os arquivos de dados e log de uma base de dados específica (TESTE_LUIZ) para um novo local no servidor. Ele inclui etapas para verificar o status da base, encerrar conexões ativas, alterar o estado da base para offline, modificar os caminhos dos arquivos e, finalmente, trazer a base de volta para online.
+
+### Explicação do Funcionamento
+1. Etapa 1: Verificação Inicial :
+- O script começa verificando o nome lógico e o caminho físico dos arquivos de dados e log associados à base de dados TESTE_LUIZ.
+- Também verifica o status atual da base de dados para garantir que ela esteja online antes de iniciar o processo.
+2. Etapa 2: Encerramento de Conexões Ativas :
+- Identifica todas as conexões ativas na base de dados TESTE_LUIZ e as encerra usando o comando KILL.
+- Isso é necessário para evitar conflitos ao alterar o estado da base para offline.
+3. Etapa 3: Alteração para Offline :
+- Altera o estado da base de dados para OFFLINE, permitindo que os arquivos possam ser movidos fisicamente para o novo local.
+4. Etapa 4: Alteração dos Caminhos dos Arquivos :
+- Atualiza os caminhos físicos dos arquivos de dados (*.mdf) e log (*.ldf) para o novo local especificado.
+- É importante mover os arquivos manualmente para o novo caminho antes de executar esta etapa.
+5. Etapa 5: Alteração para Online :
+- Altera o estado da base de dados de volta para ONLINE, permitindo que ela seja acessada novamente.
+6. Conferência Final :
+- Após a conclusão do processo, o script verifica novamente os caminhos físicos dos arquivos e o status da base de dados para confirmar que tudo foi configurado corretamente.
+
+### Instruções de Uso :
+1. Execute o script em um servidor SQL Server com permissões administrativas.
+2. Certifique-se de que os arquivos de dados e log foram movidos manualmente para o novo caminho antes de executar a etapa de modificação dos caminhos.
+3. Substitua os nomes lógicos e caminhos físicos conforme necessário para sua base de dados.
+
+## Move_Database_Files_TreinamentoDBA.sql
+
+- Descrição Geral: Este script foi desenvolvido para mover os arquivos de dados (*.mdf) e log (*.ldf) da base de dados TreinamentoDBA para um novo local no servidor. Ele inclui etapas para encerrar conexões ativas, alterar o estado da base para offline, modificar os caminhos dos arquivos e trazer a base de volta para online. Além disso, realiza verificações para garantir que a operação foi concluída com sucesso.
+
+### Explicação do Funcionamento
+1. Encerramento de Conexões Ativas :
+- O script identifica todas as conexões ativas na base de dados TreinamentoDBA e as encerra usando o comando KILL.
+- Isso é necessário porque uma base de dados não pode ser colocada offline enquanto houver conexões ativas.
+2. Alteração para Offline :
+- A base de dados é colocada em modo OFFLINE, permitindo que os arquivos possam ser movidos fisicamente para o novo local.
+3. Movimentação dos Arquivos :
+- Os caminhos físicos dos arquivos de dados (*.mdf) e log (*.ldf) são atualizados para o novo local especificado.
+- É importante mover os arquivos manualmente para o novo caminho antes de executar esta etapa.
+- Certifique-se de que o usuário do SQL Server tenha permissões adequadas para acessar os arquivos no novo local.
+4. Alteração para Online :
+- A base de dados é colocada de volta em modo ONLINE, permitindo que ela seja acessada novamente.
+5. Verificação Final :
+- Após a conclusão do processo, o script verifica os novos caminhos físicos dos arquivos e executa uma verificação de integridade (DBCC CHECKDB) para garantir que a base de dados está íntegra.
+
+## Database_Configuration_and_Corrections.sql
+
+- Descrição Geral: Este script foi desenvolvido para analisar e corrigir configurações de bancos de dados no SQL Server. Ele inclui duas partes principais:
+
+1. Análise de Configurações : Exibe informações detalhadas sobre os bancos de dados, como tamanho dos arquivos, modelo de recuperação, último backup, e configurações específicas.
+2. Correções Automatizadas : Gera comandos SQL para ajustar configurações inadequadas, como PAGE_VERIFY, AUTO_CLOSE, AUTO_SHRINK, e estatísticas automáticas.
+
+### Explicação do Funcionamento
+1. Análise de Configurações :
+- O primeiro bloco de código exibe informações detalhadas sobre todos os bancos de dados no servidor, incluindo:
+-- Tamanho dos arquivos de dados e log.
+-- Modelo de recuperação.
+-- Último backup realizado.
+-- Configurações como AUTO_CLOSE, AUTO_SHRINK, e estatísticas automáticas.
+-- Nível de compatibilidade e data de criação.
+- Essas informações são úteis para identificar problemas ou configurações inadequadas.
+2. Correções Automatizadas :
+- O segundo bloco de código gera comandos SQL para corrigir configurações inadequadas, como:
+-- Alterar PAGE_VERIFY para CHECKSUM.
+-- Desabilitar AUTO_CLOSE e AUTO_SHRINK.
+-- Habilitar AUTO_CREATE_STATISTICS e AUTO_UPDATE_STATISTICS.
+- Os comandos gerados podem ser copiados e executados diretamente para aplicar as correções.
+3. Script para Testes :
+- O terceiro bloco de código (comentado) permite criar bancos de dados de teste com configurações inadequadas para validar o funcionamento do script.
+- Após os testes, os bancos de dados criados são excluídos.
+
+### Instruções de Uso :
+1. Execute o script em um servidor SQL Server com permissões administrativas.
+2. Revise as informações exibidas na primeira parte do script para identificar configurações inadequadas.
+3. Copie e execute os comandos gerados na segunda parte do script para aplicar as correções necessárias.
+4. Utilize o script de teste (bloco comentado) para validar o funcionamento do script em um ambiente de desenvolvimento.
