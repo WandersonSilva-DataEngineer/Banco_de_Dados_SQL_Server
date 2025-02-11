@@ -50,3 +50,28 @@ Instruções de Uso :
 1. Execute o script em um servidor SQL Server com permissões administrativas.
 2. Certifique-se de que as tabelas mencionadas no script existam no banco de dados DBA_Tools.
 3. Configure o operador de email Alerta_BD no SQL Server Agent para receber notificações de falhas.
+
+## Clean_Error_Log_DBA_Tools.sql
+
+- Descrição Geral:
+Este script foi desenvolvido para criar um job no SQL Server Agent que automatiza a limpeza do log de erros (Error Log) do SQL Server. A limpeza é realizada executando o procedimento armazenado sp_cycle_errorlog, que fecha o log de erros atual e cria um novo arquivo vazio. O job está configurado para rodar semanalmente, todos os sábados.
+
+### Explicação do Funcionamento
+1. Job DBA - Limpa Error Log :
+- Este job executa o procedimento armazenado sp_cycle_errorlog, que fecha o log de erros atual e cria um novo arquivo vazio.
+- O log de erros antigo é mantido como um arquivo arquivado, permitindo consultas futuras, mas não interfere mais no desempenho do servidor.
+2. Configuração do Job :
+- O job está configurado para rodar semanalmente, todos os sábados, às 23:50 PM.
+- Está associado à categoria Database Maintenance e notifica o operador Alerta_BD por email em caso de falha.
+3. Comando sp_cycle_errorlog :
+- Este comando é usado para gerenciar o tamanho do log de erros do SQL Server, evitando que ele cresça indefinidamente.
+- Ele não apaga os logs antigos, apenas os arquiva, permitindo que continuem disponíveis para análise.
+
+- Título : Limpeza Automática do Error Log no SQL Server
+- Descrição : Script SQL para automatizar a limpeza do log de erros (Error Log) do SQL Server, utilizando o procedimento sp_cycle_errorlog. Útil para manter o tamanho do log sob controle e evitar problemas de desempenho.
+- Tags : SQL Server, Manutenção, Logs, Automatização, SQL Server Agent
+
+Instruções de Uso :
+1. Execute o script em um servidor SQL Server com permissões administrativas.
+2. Certifique-se de que o operador de email Alerta_BD esteja configurado no SQL Server Agent para receber notificações de falhas.
+3. O job será executado automaticamente conforme o agendamento definido (todos os sábados às 23:50 PM).
